@@ -1,0 +1,25 @@
+<idea-plugin>
+    <id>com.pum.code.blame</id>
+    <name>CodeBlame</name>
+    <vendor email="pcmpcmpcm@qq.com" url="http://blog.pcm4396.xyz">PcmBlog</vendor>
+
+    <description><![CDATA[
+    查看本地组件库的代码作者。第一次plugin开发，测试中………………………………………………………………………………………………
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <themeProvider id="1d0121d9-19cf-4a83-a5f9-c29b0609ccf5" path="/null"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="pcm.blame.hello" class="HelloWorldAction" text="HelloWorld" description="Say hello world">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
