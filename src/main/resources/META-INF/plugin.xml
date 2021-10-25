@@ -21,5 +21,8 @@
         <action id="pcm.blame.hello" class="HelloWorldAction" text="HelloWorld" description="Say hello world">
             <add-to-group group-id="GenerateGroup" anchor="last"/>
         </action>
+        <action id="pcm.blame.test" class="CodeBlameAction" text="CodeBlame" description="Custom code blame">
+            <add-to-group group-id="EditorGutterVcsPopupMenu" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>

@@ -13,6 +13,9 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+//    implementation 'org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r'
+//    implementation 'org.eclipse.jgit:org.eclipse.jgit.archive:5.13.0.202109080827-r'
+//    implementation 'org.eclipse.jgit:org.eclipse.jgit.ssh.jsch:5.13.0.202109080827-r'
 }
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
