@@ -1,3 +1,5 @@
+package actions;
+
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -11,7 +13,6 @@ import com.intellij.openapi.editor.event.EditorMouseEvent;
 import com.intellij.openapi.editor.event.EditorMouseListener;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.util.NlsContexts;
 import com.intellij.openapi.vcs.annotate.AnnotationSource;
 import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
@@ -24,7 +25,8 @@ import java.util.*;
 import java.util.List;
 
 public class CodeBlameAction extends AnAction {
-    String gitPath = "D:\\Program Files\\Git\\cmd\\git.exe";
+    String gitPathWindow = "D:\\Program Files\\Git\\cmd\\git.exe";
+    String gitPathMac="/usr/bin/git";
 
     @Override
     public void actionPerformed(AnActionEvent e) {
@@ -32,7 +34,7 @@ public class CodeBlameAction extends AnAction {
         MyRunnable runnable = new MyRunnable(new FinishCallback() {
             @Override
             public void onFinish(List<String> result) {
-                Messages.showMessageDialog(project, Arrays.toString(result.toArray(new String[0])), "blame test", Messages.getInformationIcon());
+//                Messages.showMessageDialog(project, Arrays.toString(result.toArray(new String[0])), "blame test", Messages.getInformationIcon());
                 final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
                 editor.getGutter().registerTextAnnotation(new TextAnnotationGutterProvider() {
                     private boolean isShow = false;
@@ -47,7 +49,7 @@ public class CodeBlameAction extends AnAction {
                     }
 
                     @Override
-                    public @Nullable @NlsContexts.Tooltip String getToolTip(int line, Editor editor) {
+                    public @Nullable String getToolTip(int line, Editor editor) {
                         return "pcmtest";
                     }
 
@@ -142,7 +144,7 @@ public class CodeBlameAction extends AnAction {
             String filePath = psiFile.getVirtualFile().getPath();
             File gitDir = findGitDir(new File(filePath));
             Process process = null;
-            String cmd = gitPath +  " blame " + filePath;
+            String cmd = gitPathMac +  " blame " + filePath;
             try {
                 process = Runtime.getRuntime().exec(cmd, null, gitDir);
 

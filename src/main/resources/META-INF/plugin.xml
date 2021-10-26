@@ -10,6 +10,7 @@
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
@@ -18,10 +19,10 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="pcm.blame.hello" class="HelloWorldAction" text="HelloWorld" description="Say hello world">
+        <action id="pcm.blame.hello" class="actions.HelloWorldAction" text="HelloWorld" description="Say hello world">
             <add-to-group group-id="GenerateGroup" anchor="last"/>
         </action>
-        <action id="pcm.blame.test" class="CodeBlameAction" text="CodeBlame" description="Custom code blame">
+        <action id="pcm.blame.test" class="actions.CodeBlameAction" text="CodeBlame" description="Custom code blame">
             <add-to-group group-id="EditorGutterVcsPopupMenu" anchor="last"/>
         </action>
     </actions>

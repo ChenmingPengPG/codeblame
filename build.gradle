@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.intellij' version '1.2.0'
+    id 'org.jetbrains.intellij' version '0.7.3'
     id 'java'
 }
 
@@ -13,6 +13,7 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
 //    implementation 'org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r'
 //    implementation 'org.eclipse.jgit:org.eclipse.jgit.archive:5.13.0.202109080827-r'
 //    implementation 'org.eclipse.jgit:org.eclipse.jgit.ssh.jsch:5.13.0.202109080827-r'
@@ -20,8 +21,23 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = '2021.2.2'
+    version = '201.8743.12'
+    type = 'IC'
+    plugins = ['android', 'java', 'gradle']
 }
+
+runIde {
+    // Absolute path to installed target 4.1 Android Studio to use as IDE Development Instance
+    // The "Contents" directory is macOS specific.
+//    ideDir = file('/Applications/Android Studio.app/Contents')
+}
+
+def javaVersion = JavaVersion.VERSION_1_8
+java {
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+}
+
 patchPluginXml {
     changeNotes = """
       Add change notes here.<br>
